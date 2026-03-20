@@ -3,6 +3,7 @@ name: Deploy naar rondefronten.nl
 on:
   push:
     branches: [main]
+  workflow_dispatch:
 
 jobs:
   deploy:
@@ -20,4 +21,5 @@ jobs:
           script: |
             cd /var/www/rondefronten.nl/public_html
             git pull origin main
-            chown -R www-data:www-data /var/www/rondefronten.nl/public_html/
+            sudo chown -R www-data:www-data /var/www/rondefronten.nl/public_html/
+
