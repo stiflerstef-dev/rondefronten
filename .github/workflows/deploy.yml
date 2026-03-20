@@ -9,17 +9,6 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Deploy via SSH
-        uses: appleboy/ssh-action@v1.0.3
-        with:
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USER }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          script: |
-            cd /var/www/rondefronten.nl/public_html
-            git pull origin main
-            sudo chown -R www-data:www-data /var/www/rondefronten.nl/public_html/
-
+      - name: Trigger deploy webhook
+        run: |
+          curl -sf -X POST https://rondefronten.nl/deploy/RondeFrontenDeploy2026! && echo "Deploy getriggerd!"
