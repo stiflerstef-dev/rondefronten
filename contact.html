@@ -75,35 +75,32 @@
 		gap: var(--badge-gap);
 	}
 
-        /* Basic styling for contact page content to integrate with the theme */
+        /* Basic styling for contact page content */
         body {
-            font-family: CameraPlainVariable, "CameraPlainVariable Fallback", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            color: #c5c1b9; /* Assuming a light text color on a dark background based on badge */
-            background-color: #1b1b1b; /* Assuming a dark background */
-            margin: 0;
-            padding: 20px;
+            font-family: 'CameraPlainVariable', sans-serif; /* Ensuring the font is used for the body */
             line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background: #fff; /* Adjust as per actual site background */
+            color: #333; /* Adjust as per actual site text color */
         }
         .container {
-            max-width: 800px;
-            margin: 50px auto;
-            padding: 30px;
-            background-color: #2a2a2a; /* Slightly lighter dark background for content */
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+            padding: 20px 0;
         }
         h1 {
-            color: #dcdad5; /* Slightly lighter heading color */
+            color: #333; /* Adjust as per actual site heading color */
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
         }
         p {
-            font-size: 1.1em;
             text-align: center;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
         }
         a {
-            color: #575ECF; /* Focus color from the badge, for links */
+            color: #007bff; /* Adjust as per actual site link color */
             text-decoration: none;
         }
         a:hover {
@@ -112,12 +109,14 @@
     </style>
   </head>
   <body>
-    <div class="container">
-      <h1>Contact opnemen</h1>
-      <p>Voor algemene vragen of informatie kunt u ons bereiken via:</p>
-      <p><a href="mailto:info@rondefronten.nl">info@rondefronten.nl</a></p>
-      <p>Voor specifieke contactaanvragen:</p>
-      <p><a href="mailto:contact@rondefronten.nl">contact@rondefronten.nl</a></p>
-    </div>
+    <div id="app"></div>
+    <main>
+        <div class="container">
+            <h1>Contacteer ons</h1>
+            <p>U kunt ons bereiken via de volgende e-mailadressen:</p>
+            <p>E-mail: <a href="mailto:info@rondefronten.nl">info@rondefronten.nl</a></p>
+            <p>E-mail: <a href="mailto:contact@rondefronten.nl">contact@rondefronten.nl</a></p>
+        </div>
+    </main>
   </body>
 </html>
