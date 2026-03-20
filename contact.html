@@ -4,119 +4,52 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contact - Rondefronten.nl</title>
-    <meta name="description" content="Contactpagina Rondefronten.nl">
-    <meta name="author" content="Lovable" />
-
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/39d8e197-9864-40cb-920e-6b96c89af3ab/id-preview-35baf8c2--679901c2-50a8-4028-8221-baf9bac4c8eb.lovable.app-1768763839161.png">
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@Lovable" />
-    <meta name="twitter:image" content="https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/39d8e197-9864-40cb-920e-6b96c89af3ab/id-preview-35baf8c2--679901c2-50a8-4028-8221-baf9bac4c8eb.lovable.app-1768763839161.png">
-    <meta property="og:title" content="Contact - Rondefronten.nl">
-    <meta name="twitter:title" content="Contact - Rondefronten.nl">
-    <meta property="og:description" content="Contactpagina Rondefronten.nl">
-    <meta name="twitter:description" content="Contactpagina Rondefronten.nl">
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <script type="module" crossorigin src="assets/index-BnOMVTuT.js"></script>
     <link rel="stylesheet" crossorigin href="assets/index-Cp0UVZHy.css">
-
     <style>
-        @font-face {
-            font-family: 'CameraPlainVariable';
-            src: url('https://cdn.gpteng.co/mcp-widgets/v1/fonts/CameraPlainVariable.woff2') format('woff2');
-            font-weight: 100 900;
-		font-style: normal;
-		font-display: swap;
-	}
-
-	#lovable-badge {
-		--badge-bg: #1b1b1b;
-		--badge-text: #c5c1b9;
-		--badge-text-hover: #dcdad5;
-		--badge-radius: 6px;
-		--badge-padding: 8px;
-		--badge-gap: 6px;
-		--badge-shadow: 
-			0 0 0 1px rgba(0, 0, 0, 0.88),
-			0 1px 0 0 rgba(0, 0, 0, 0.04),
-			0 2px 2px -1px rgba(0, 0, 0, 0.08),
-			0 4px 4px -2px rgba(0, 0, 0, 0.08),
-			0 8px 8px -4px rgba(0, 0, 0, 0.08),
-			0 16px 16px -8px rgba(0, 0, 0, 0.08);
-		--badge-transition-duration: 0.2s;
-		--badge-transition-easing: cubic-bezier(0.16, 1, 0.32, 1);
-		--focus-color: #575ECF;
-		--focus-offset: 2px;
-		--focus-width: 2px;
-		
-		position: fixed;
-		bottom: 12px;
-		right: 12px;
-		height: 24px;
-		display: flex;
-		align-items: center;
-		z-index: 1000000;
-		background-color: var(--badge-bg);
-		color: var(--badge-text);
-		border-radius: var(--badge-radius);
-		box-shadow: var(--badge-shadow);
-		font-size: 12px;
-		font-family: CameraPlainVariable, "CameraPlainVariable Fallback", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-		font-weight: 400 !important;
-		text-transform: none !important;
-		font-feature-settings: normal !important;
-		transform: translateZ(0);
-		will-change: transform, opacity;
-	}
-
-	#lovable-badge-cta {
-		display: flex;
-		align-items: center;
-		gap: var(--badge-gap);
-	}
-
-        /* Basic styling for contact page content */
-        body {
-            font-family: 'CameraPlainVariable', sans-serif; /* Ensuring the font is used for the body */
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            background: #fff; /* Adjust as per actual site background */
-            color: #333; /* Adjust as per actual site text color */
-        }
-        .container {
-            width: 80%;
-            margin: auto;
-            overflow: hidden;
-            padding: 20px 0;
-        }
-        h1 {
-            color: #333; /* Adjust as per actual site heading color */
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        p {
-            text-align: center;
-            margin-bottom: 10px;
-        }
-        a {
-            color: #007bff; /* Adjust as per actual site link color */
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
+      @font-face {
+        font-family: 'CameraPlainVariable';
+        src: url('https://cdn.gpteng.co/mcp-widgets/v1/fonts/CameraPlainVariable.woff2') format('woff2');
+        font-weight: 100 900;
+        font-style: normal;
+        font-display: swap;
+      }
+      body {
+        font-family: 'CameraPlainVariable', sans-serif;
+        background-color: #1b1b1b; /* Matching badge background */
+        color: #c5c1b9; /* Matching badge text */
+        line-height: 1.6;
+        margin: 20px;
+        padding: 0;
+      }
+      h1 {
+        color: #dcdad5; /* Slightly lighter for headings */
+      }
+      a {
+        color: #575ECF; /* Focus color from badge for links */
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      .container {
+        max-width: 800px;
+        margin: auto;
+        padding: 20px;
+        background: #2a2a2a; /* Slightly lighter than body for content area */
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
     </style>
   </head>
   <body>
-    <div id="app"></div>
-    <main>
-        <div class="container">
-            <h1>Contacteer ons</h1>
-            <p>U kunt ons bereiken via de volgende e-mailadressen:</p>
-            <p>E-mail: <a href="mailto:info@rondefronten.nl">info@rondefronten.nl</a></p>
-            <p>E-mail: <a href="mailto:contact@rondefronten.nl">contact@rondefronten.nl</a></p>
-        </div>
-    </main>
+    <div class="container">
+      <h1>Contact Rondefronten.nl</h1>
+      <p>Voor al uw vragen en opmerkingen kunt u contact met ons opnemen via:</p>
+      <ul>
+        <li>E-mail: <a href="mailto:info@rondefronten.nl">info@rondefronten.nl</a></li>
+        <li>E-mail: <a href="mailto:contact@rondefronten.nl">contact@rondefronten.nl</a></li>
+      </ul>
+      <p><a href="index.html">Terug naar de hoofdpagina</a></p>
+    </div>
   </body>
 </html>
