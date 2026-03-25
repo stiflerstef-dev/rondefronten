@@ -270,15 +270,24 @@
 </script>
 <script>
 // Patch Contact nav-link naar contact.html
-document.addEventListener("DOMContentLoaded", function() {
-  var links = document.querySelectorAll("a.nav-link");
-  links.forEach(function(a) {
-    if (a.textContent.trim() === "Contact") {
-      a.href = "/contact.html";
-    }
+(function() {
+  function patchContactLink() {
+    var links = document.querySelectorAll("a.nav-link");
+    links.forEach(function(a) {
+      if (a.textContent.trim() === "Contact") {
+        a.href = "/contact.html";
+      }
+    });
+  }
+  // Probeer direct + via MutationObserver voor React-rendered content
+  patchContactLink();
+  var observer = new MutationObserver(function() {
+    patchContactLink();
   });
-});
-// contact-patch
+  observer.observe(document.body, { childList: true, subtree: true });
+  // Stop na 5s
+  setTimeout(function() { observer.disconnect(); }, 5000);
+})();
 </script>
 </body>
 </html><!-- sync test vr 20 mrt 2026 19:55:02 UTC -->
