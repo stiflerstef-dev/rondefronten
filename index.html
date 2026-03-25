@@ -25,21 +25,50 @@
   <script type="module" crossorigin src="assets/index-BnOMVTuT.js"></script>
   <link rel="stylesheet" crossorigin href="assets/index-Cp0UVZHy.css">
   <style>
-    /* Haal logo uit absolute flow en zet het als flex-item in het midden */
-    header .flex.items-center.justify-between > .absolute {
-      position: relative !important;
-      left: auto !important;
-      transform: none !important;
-    }
-    /* Geef beide navs gelijke breedte zodat het logo gecentreerd blijft */
-    header .flex.items-center.justify-between > nav.hidden {
-      flex: 1;
-    }
-    header .flex.items-center.justify-between > nav.hidden:first-of-type {
-      justify-content: flex-end;
-    }
-    header .flex.items-center.justify-between > nav.hidden:last-of-type {
-      justify-content: flex-start;
+    /* Desktop: grid layout zodat logo gecentreerd staat zonder overlap */
+    @media (min-width: 768px) {
+      .flex.items-center.justify-between.h-20 {
+        display: grid !important;
+        grid-template-columns: 1fr auto 1fr;
+        grid-template-rows: 1fr;
+      }
+      /* Logo: middelste kolom, relative zodat het niet overlapt */
+      .flex.items-center.justify-between.h-20 > .absolute {
+        position: relative !important;
+        left: auto !important;
+        transform: none !important;
+        grid-column: 2;
+        grid-row: 1;
+        justify-self: center;
+      }
+      /* Linker nav: kolom 1, rechts uitgelijnd */
+      .flex.items-center.justify-between.h-20 > nav.hidden:first-of-type {
+        grid-column: 1;
+        grid-row: 1;
+        display: flex !important;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 2rem;
+      }
+      /* Rechter nav: kolom 3, links uitgelijnd */
+      .flex.items-center.justify-between.h-20 > nav.hidden:last-of-type {
+        grid-column: 3;
+        grid-row: 1;
+        display: flex !important;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 2rem;
+      }
+      /* Extra knoppen (winkelwagen etc.) ook in kolom 3, rechts */
+      .flex.items-center.justify-between.h-20 > button.relative {
+        grid-column: 3;
+        grid-row: 1;
+        justify-self: end;
+      }
+      /* Mobiele knop verbergen op desktop */
+      .flex.items-center.justify-between.h-20 > button.md\:hidden {
+        display: none !important;
+      }
     }
   </style>
 
