@@ -25,7 +25,13 @@
   <script type="module" crossorigin src="assets/index-BnOMVTuT.js"></script>
   <link rel="stylesheet" crossorigin href="assets/index-Cp0UVZHy.css">
   <style>
-    /* Balanceer linker nav (3 items) en rechter nav (2 items) rondom gecentreerd logo */
+    /* Haal logo uit absolute flow en zet het als flex-item in het midden */
+    header .flex.items-center.justify-between > .absolute {
+      position: relative !important;
+      left: auto !important;
+      transform: none !important;
+    }
+    /* Geef beide navs gelijke breedte zodat het logo gecentreerd blijft */
     header .flex.items-center.justify-between > nav.hidden {
       flex: 1;
     }
