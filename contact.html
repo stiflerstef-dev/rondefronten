@@ -1,55 +1,224 @@
 <!doctype html>
-<html lang="en">
+<html lang="nl">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contact - Rondefronten.nl</title>
+    <meta name="description" content="Neem contact op met Rondefronten.nl">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="stylesheet" crossorigin href="assets/index-Cp0UVZHy.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
-      @font-face {
-        font-family: 'CameraPlainVariable';
-        src: url('https://cdn.gpteng.co/mcp-widgets/v1/fonts/CameraPlainVariable.woff2') format('woff2');
-        font-weight: 100 900;
-        font-style: normal;
-        font-display: swap;
+      :root {
+        --background: 30 25% 97%;
+        --foreground: 25 30% 15%;
+        --card: 30 20% 99%;
+        --primary: 25 40% 35%;
+        --primary-foreground: 30 25% 97%;
+        --muted: 30 15% 92%;
+        --muted-foreground: 25 20% 45%;
+        --border: 30 15% 88%;
+        --accent: 30 25% 94%;
       }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
       body {
-        font-family: 'CameraPlainVariable', sans-serif;
-        background-color: #1b1b1b; /* Matching badge background */
-        color: #c5c1b9; /* Matching badge text */
+        font-family: 'Inter', sans-serif;
+        background-color: hsl(var(--background));
+        color: hsl(var(--foreground));
         line-height: 1.6;
-        margin: 20px;
-        padding: 0;
+        min-height: 100vh;
       }
-      h1 {
-        color: #dcdad5; /* Slightly lighter for headings */
+      /* ─── Header / Nav ─── */
+      header {
+        background-color: hsl(var(--card));
+        border-bottom: 1px solid hsl(var(--border));
+        padding: 1rem 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: sticky;
+        top: 0;
+        z-index: 100;
       }
-      a {
-        color: #575ECF; /* Focus color from badge for links */
+      .logo {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: hsl(var(--primary));
         text-decoration: none;
       }
-      a:hover {
+      nav a {
+        font-family: 'Inter', sans-serif;
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: hsl(var(--muted-foreground));
+        text-decoration: none;
+        margin-left: 2rem;
+        transition: color 0.2s;
+      }
+      nav a:hover, nav a.active {
+        color: hsl(var(--foreground));
+      }
+      /* ─── Hero ─── */
+      .hero {
+        background: linear-gradient(135deg, hsl(var(--primary)), #60432e);
+        color: hsl(var(--primary-foreground));
+        padding: 4rem 2rem;
+        text-align: center;
+      }
+      .hero h1 {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: clamp(2rem, 5vw, 3.5rem);
+        font-weight: 500;
+        margin-bottom: 0.75rem;
+        letter-spacing: 0.02em;
+      }
+      .hero p {
+        font-size: 1rem;
+        opacity: 0.85;
+        max-width: 500px;
+        margin: 0 auto;
+      }
+      /* ─── Main ─── */
+      main {
+        max-width: 720px;
+        margin: 0 auto;
+        padding: 3rem 1.5rem;
+      }
+      .contact-card {
+        background-color: hsl(var(--card));
+        border: 1px solid hsl(var(--border));
+        border-radius: 12px;
+        padding: 2.5rem;
+        box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      }
+      .contact-card h2 {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 1.75rem;
+        font-weight: 500;
+        color: hsl(var(--foreground));
+        margin-bottom: 0.5rem;
+      }
+      .contact-card .subtitle {
+        color: hsl(var(--muted-foreground));
+        font-size: 0.95rem;
+        margin-bottom: 2rem;
+        border-bottom: 1px solid hsl(var(--border));
+        padding-bottom: 1.25rem;
+      }
+      .contact-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+        padding: 1.25rem 0;
+        border-bottom: 1px solid hsl(var(--border));
+      }
+      .contact-item:last-of-type {
+        border-bottom: none;
+      }
+      .contact-icon {
+        width: 44px;
+        height: 44px;
+        background-color: hsl(var(--accent));
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      .contact-icon svg {
+        width: 20px;
+        height: 20px;
+        color: hsl(var(--primary));
+      }
+      .contact-info label {
+        display: block;
+        font-size: 0.75rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: hsl(var(--muted-foreground));
+        margin-bottom: 0.2rem;
+      }
+      .contact-info a {
+        color: hsl(var(--primary));
+        text-decoration: none;
+        font-size: 1rem;
+        font-weight: 500;
+        transition: opacity 0.2s;
+      }
+      .contact-info a:hover {
+        opacity: 0.75;
         text-decoration: underline;
       }
-      .container {
-        max-width: 800px;
-        margin: auto;
-        padding: 20px;
-        background: #2a2a2a; /* Slightly lighter than body for content area */
-        border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      .back-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-top: 2rem;
+        font-size: 0.875rem;
+        color: hsl(var(--muted-foreground));
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+      .back-link:hover {
+        color: hsl(var(--foreground));
+      }
+      /* ─── Footer ─── */
+      footer {
+        text-align: center;
+        padding: 2rem;
+        color: hsl(var(--muted-foreground));
+        font-size: 0.8rem;
+        border-top: 1px solid hsl(var(--border));
+        margin-top: 4rem;
       }
     </style>
   </head>
   <body>
-    <div class="container">
-      <h1>Contact Rondefronten.nl</h1>
-      <p>Voor al uw vragen en opmerkingen kunt u contact met ons opnemen via:</p>
-      <ul>
-        <li>E-mail: <a href="mailto:info@rondefronten.nl">info@rondefronten.nl</a></li>
-        <li>E-mail: <a href="mailto:contact@rondefronten.nl">contact@rondefronten.nl</a></li>
-      </ul>
-      <p><a href="index.html">Terug naar de hoofdpagina</a></p>
+    <header>
+      <a class="logo" href="/">Rondefronten</a>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/contact.html" class="active">Contact</a>
+      </nav>
+    </header>
+
+    <div class="hero">
+      <h1>Contact</h1>
+      <p>Neem gerust contact op — we helpen u graag verder.</p>
     </div>
+
+    <main>
+      <div class="contact-card">
+        <h2>Neem contact op</h2>
+        <p class="subtitle">Voor al uw vragen en opmerkingen staan wij voor u klaar.</p>
+
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+            </svg>
+          </div>
+          <div class="contact-info">
+            <label>E-mailadres</label>
+            <a href="mailto:info@rondefronten.nl">info@rondefronten.nl</a>
+          </div>
+        </div>
+      </div>
+
+      <a class="back-link" href="/">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+        </svg>
+        Terug naar de hoofdpagina
+      </a>
+    </main>
+
+    <footer>
+      &copy; 2026 Rondefronten.nl &mdash; Alle rechten voorbehouden
+    </footer>
   </body>
 </html>
