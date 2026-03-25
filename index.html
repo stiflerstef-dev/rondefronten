@@ -24,6 +24,18 @@
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <script type="module" crossorigin src="assets/index-BnOMVTuT.js"></script>
   <link rel="stylesheet" crossorigin href="assets/index-Cp0UVZHy.css">
+  <style>
+    /* Balanceer linker nav (3 items) en rechter nav (2 items) rondom gecentreerd logo */
+    header .flex.items-center.justify-between > nav.hidden {
+      flex: 1;
+    }
+    header .flex.items-center.justify-between > nav.hidden:first-of-type {
+      justify-content: flex-end;
+    }
+    header .flex.items-center.justify-between > nav.hidden:last-of-type {
+      justify-content: flex-start;
+    }
+  </style>
 
 <style>
 	@font-face {
