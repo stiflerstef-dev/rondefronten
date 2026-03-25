@@ -268,5 +268,17 @@
 		});
 	}
 </script>
+<script>
+// Patch Contact nav-link naar contact.html
+document.addEventListener("DOMContentLoaded", function() {
+  var links = document.querySelectorAll("a.nav-link");
+  links.forEach(function(a) {
+    if (a.textContent.trim() === "Contact") {
+      a.href = "/contact.html";
+    }
+  });
+});
+// contact-patch
+</script>
 </body>
 </html><!-- sync test vr 20 mrt 2026 19:55:02 UTC -->
