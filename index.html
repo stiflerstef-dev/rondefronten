@@ -28,5 +28,95 @@
 
   <body>
     <div id="root"></div>
-  </body>
+  
+<script>
+(function() {
+  var menuOpen = false;
+  var mobileMenu = null;
+
+  function createMobileMenu() {
+    var menu = document.createElement('div');
+    menu.id = 'mobile-nav-menu';
+    menu.style.cssText = [
+      'display:none',
+      'position:fixed',
+      'top:64px',
+      'left:0',
+      'right:0',
+      'background:hsl(25 40% 15%)',
+      'z-index:999',
+      'padding:1rem 0',
+      'box-shadow:0 4px 12px rgba(0,0,0,0.3)',
+      'border-top:1px solid hsl(25 30% 25%)'
+    ].join(';');
+
+    var links = [
+      { text: 'Over Ons', href: '#over-ons' },
+      { text: 'Kasten', href: '#kasten' },
+      { text: 'Contact', href: '/contact.html' }
+    ];
+
+    links.forEach(function(l) {
+      var a = document.createElement('a');
+      a.href = l.href;
+      a.textContent = l.text;
+      a.style.cssText = [
+        'display:block',
+        'padding:0.85rem 1.5rem',
+        'color:hsl(35 60% 85%)',
+        'font-family:Inter,sans-serif',
+        'font-size:1rem',
+        'text-decoration:none',
+        'border-bottom:1px solid hsl(25 30% 22%)'
+      ].join(';');
+      a.addEventListener('click', function() { closeMenu(); });
+      menu.appendChild(a);
+    });
+
+    document.body.appendChild(menu);
+    return menu;
+  }
+
+  function openMenu() {
+    menuOpen = true;
+    if (!mobileMenu) mobileMenu = createMobileMenu();
+    mobileMenu.style.display = 'block';
+  }
+
+  function closeMenu() {
+    menuOpen = false;
+    if (mobileMenu) mobileMenu.style.display = 'none';
+  }
+
+  function init() {
+    var buttons = document.querySelectorAll('button');
+    var hamburger = null;
+    buttons.forEach(function(btn) {
+      if (btn.classList.contains('md:hidden')) hamburger = btn;
+    });
+
+    if (!hamburger) return false;
+
+    hamburger.addEventListener('click', function(e) {
+      e.stopPropagation();
+      menuOpen ? closeMenu() : openMenu();
+    });
+
+    document.addEventListener('click', function(e) {
+      if (menuOpen && mobileMenu && !mobileMenu.contains(e.target)) {
+        closeMenu();
+      }
+    });
+
+    return true;
+  }
+
+  var observer = new MutationObserver(function() {
+    if (init()) observer.disconnect();
+  });
+  observer.observe(document.body, { childList: true, subtree: true });
+})();
+</script>
+
+</body>
 </html>
