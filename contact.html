@@ -6,7 +6,6 @@
     <title>Contact - Rondefronten.nl</title>
     <meta name="description" content="Neem contact op met Rondefronten.nl">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
-    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -23,343 +22,88 @@
         --accent: 30 25% 94%;
       }
       * { box-sizing: border-box; margin: 0; padding: 0; }
-      body {
-        font-family: 'Inter', sans-serif;
-        background-color: hsl(var(--background));
-        color: hsl(var(--foreground));
-        line-height: 1.6;
-        min-height: 100vh;
-      }
-      /* ─── Hero ─── */
-      .hero {
-        background: linear-gradient(135deg, hsl(var(--primary)), #60432e);
-        color: hsl(var(--primary-foreground));
-        padding: 4rem 2rem;
-        text-align: center;
-      }
-      .hero h1 {
-        font-family: 'Cormorant Garamond', serif;
-        font-size: clamp(2rem, 5vw, 3.5rem);
-        font-weight: 500;
-        margin-bottom: 0.75rem;
-        letter-spacing: 0.02em;
-      }
-      .hero p {
-        font-size: 1rem;
-        opacity: 0.85;
-        max-width: 500px;
-        margin: 0 auto;
-      }
-      /* ─── Main ─── */
-      main {
-        max-width: 720px;
-        margin: 0 auto;
-        padding: 3rem 1.5rem;
-      }
-      .contact-card {
-        background-color: hsl(var(--card));
-        border: 1px solid hsl(var(--border));
-        border-radius: 12px;
-        padding: 2.5rem;
-        box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-      }
-      .contact-card h2 {
-        font-family: 'Cormorant Garamond', serif;
-        font-size: 1.75rem;
-        font-weight: 500;
-        color: hsl(var(--foreground));
-        margin-bottom: 0.5rem;
-      }
-      .contact-card .subtitle {
-        color: hsl(var(--muted-foreground));
-        font-size: 0.95rem;
-        margin-bottom: 2rem;
-        border-bottom: 1px solid hsl(var(--border));
-        padding-bottom: 1.25rem;
-      }
-      .contact-item {
-        display: flex;
-        align-items: flex-start;
-        gap: 1rem;
-        padding: 1.25rem 0;
-        border-bottom: 1px solid hsl(var(--border));
-      }
-      .contact-item:last-of-type {
-        border-bottom: none;
-      }
-      .contact-icon {
-        width: 44px;
-        height: 44px;
-        background-color: hsl(var(--accent));
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-shrink: 0;
-      }
-      .contact-icon svg {
-        width: 20px;
-        height: 20px;
-        color: hsl(var(--primary));
-      }
-      .contact-info label {
-        display: block;
-        font-size: 0.75rem;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 0.08em;
-        color: hsl(var(--muted-foreground));
-        margin-bottom: 0.2rem;
-      }
-      .contact-info a {
-        color: hsl(var(--primary));
-        text-decoration: none;
-        font-size: 1rem;
-        font-weight: 500;
-        transition: opacity 0.2s;
-      }
-      .contact-info a:hover {
-        opacity: 0.75;
-        text-decoration: underline;
-      }
-      .back-link {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.5rem;
-        margin-top: 2rem;
-        font-size: 0.875rem;
-        color: hsl(var(--muted-foreground));
-        text-decoration: none;
-        transition: color 0.2s;
-      }
-      .back-link:hover {
-        color: hsl(var(--foreground));
-      }
-      /* ─── Formulier ─── */
-      .form-group {
-        display: flex;
-        flex-direction: column;
-        gap: 0.3rem;
-        margin-bottom: 1.25rem;
-      }
-      .form-group label {
-        font-size: 0.8rem;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 0.07em;
-        color: hsl(var(--muted-foreground));
-      }
-      .form-group input,
-      .form-group textarea {
-        font-family: 'Inter', sans-serif;
-        font-size: 0.95rem;
-        padding: 0.65rem 0.9rem;
-        border: 1px solid hsl(var(--border));
-        border-radius: 8px;
-        background: hsl(var(--background));
-        color: hsl(var(--foreground));
-        transition: border-color 0.2s, box-shadow 0.2s;
-        outline: none;
-        width: 100%;
-        box-sizing: border-box;
-      }
-      .form-group input:focus,
-      .form-group textarea:focus {
-        border-color: hsl(var(--primary));
-        box-shadow: 0 0 0 3px hsl(var(--primary) / 0.12);
-      }
-      .form-group textarea {
-        resize: vertical;
-        min-height: 120px;
-      }
-      .form-row {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 1rem;
-      }
-      @media (max-width: 540px) { .form-row { grid-template-columns: 1fr; } }
-      .btn-submit {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 0.5rem;
-        background: linear-gradient(135deg, hsl(var(--primary)), #60432e);
-        color: hsl(var(--primary-foreground));
-        font-family: 'Inter', sans-serif;
-        font-size: 0.95rem;
-        font-weight: 600;
-        padding: 0.75rem 2rem;
-        border: none;
-        border-radius: 8px;
-        cursor: pointer;
-        width: 100%;
-        margin-top: 0.5rem;
-        transition: opacity 0.2s;
-      }
-      .btn-submit:hover { opacity: 0.88; }
-      .btn-submit:disabled { opacity: 0.5; cursor: not-allowed; }
-      .form-feedback {
-        display: none;
-        margin-top: 1rem;
-        padding: 0.85rem 1rem;
-        border-radius: 8px;
-        font-size: 0.9rem;
-        font-weight: 500;
-      }
-      .form-feedback.success {
-        background: hsl(120 30% 93%);
-        color: hsl(120 40% 25%);
-        border: 1px solid hsl(120 30% 78%);
-      }
-      .form-feedback.error {
-        background: hsl(0 30% 93%);
-        color: hsl(0 50% 35%);
-        border: 1px solid hsl(0 30% 78%);
-      }
-      .recaptcha-note {
-        font-size: 0.72rem;
-        color: hsl(var(--muted-foreground));
-        margin-top: 0.75rem;
-        text-align: center;
-      }
-      .recaptcha-note a { color: hsl(var(--primary)); }
-      /* ─── Footer ─── */
-      footer {
-        text-align: center;
-        padding: 2rem;
-        color: hsl(var(--muted-foreground));
-        font-size: 0.8rem;
-        border-top: 1px solid hsl(var(--border));
-        margin-top: 4rem;
-      }
-    
-      /* ─── Gedeelde banner (zelfde als React app) ─── */
-      .site-header {
-        background-color: hsl(25 40% 35%);
-        position: sticky;
-        top: 0;
-        z-index: 100;
-      }
-      .header-inner {
-        max-width: 1280px;
-        margin: 0 auto;
-        padding: 0 1rem;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        height: 5rem;
-        position: relative;
-      }
-      .nav-left, .nav-right {
-        display: flex;
-        align-items: center;
-        gap: 2rem;
-      }
-      .nav-link {
-        font-family: 'Inter', sans-serif;
-        font-size: 0.875rem;
-        font-weight: 500;
-        color: rgba(245,240,232,0.7);
-        text-decoration: none;
-        transition: color 0.2s;
-      }
-      .nav-link:hover, .nav-link.active {
-        color: hsl(30 25% 97%);
-      }
-      .logo-wrap {
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        text-decoration: none;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-      .logo-circle {
-        width: 5rem;
-        height: 5rem;
-        background-color: hsl(30 25% 97%);
-        border-radius: 50%;
-        border: 4px solid rgba(245,240,232,0.2);
-        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-bottom: -0.5rem;
-        position: relative;
-        z-index: 10;
-        transition: transform 0.2s;
-      }
+      body { font-family: 'Inter', sans-serif; background-color: hsl(var(--background)); color: hsl(var(--foreground)); line-height: 1.6; min-height: 100vh; }
+
+      /* ─── Banner ─── */
+      .site-header { background-color: hsl(var(--primary)); position: sticky; top: 0; z-index: 100; }
+      .header-inner { max-width: 1280px; margin: 0 auto; padding: 0 1rem; display: flex; align-items: center; justify-content: space-between; height: 5rem; position: relative; }
+      .nav-left, .nav-right { display: flex; align-items: center; gap: 2rem; }
+      .nav-link { font-size: 0.875rem; font-weight: 500; color: rgba(245,240,232,0.7); text-decoration: none; transition: color 0.2s; }
+      .nav-link:hover, .nav-link.active { color: hsl(var(--primary-foreground)); }
+      .logo-wrap { position: absolute; left: 50%; transform: translateX(-50%); text-decoration: none; }
+      .logo-circle { width: 5rem; height: 5rem; background-color: hsl(var(--primary-foreground)); border-radius: 50%; border: 4px solid rgba(245,240,232,0.2); box-shadow: 0 4px 12px rgba(0,0,0,0.15); display: flex; align-items: center; justify-content: center; transition: transform 0.2s; }
       .logo-circle:hover { transform: scale(1.05); }
-      .logo-text {
-        text-align: center;
-      }
-      .logo-text span {
-        display: block;
-        font-family: 'Inter', sans-serif;
-        font-size: 0.875rem;
-        font-weight: 700;
-        color: hsl(25 40% 35%);
-        line-height: 1;
-      }
-      .hamburger {
-        display: none;
-        background: none;
-        border: none;
-        cursor: pointer;
-        color: hsl(30 25% 97%);
-        padding: 0.5rem;
-      }
-      .mobile-menu {
-        display: none;
-        flex-direction: column;
-        gap: 0.75rem;
-        padding-bottom: 1rem;
-        padding-left: 1rem;
-      }
+      .logo-text span { display: block; font-size: 0.875rem; font-weight: 700; color: hsl(var(--primary)); line-height: 1; text-align: center; }
+      .hamburger { display: none; background: none; border: none; cursor: pointer; color: hsl(var(--primary-foreground)); padding: 0.5rem; }
+      .mobile-menu { display: none; flex-direction: column; gap: 0.75rem; padding: 0 1rem 1rem; }
       .mobile-menu.open { display: flex; }
       @media (max-width: 768px) {
         .nav-left, .nav-right { display: none; }
         .hamburger { display: block; }
-        .logo-wrap { position: static; transform: none; margin: 0 auto; }
+        .logo-wrap { position: static; transform: none; }
         .header-inner { justify-content: space-between; }
       }
-      </style>
+
+      /* ─── Hero ─── */
+      .hero { background: linear-gradient(135deg, hsl(var(--primary)), #60432e); color: hsl(var(--primary-foreground)); padding: 4rem 2rem; text-align: center; }
+      .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 500; margin-bottom: 0.75rem; letter-spacing: 0.02em; }
+      .hero p { font-size: 1rem; opacity: 0.85; max-width: 500px; margin: 0 auto; }
+
+      /* ─── Main ─── */
+      main { max-width: 720px; margin: 0 auto; padding: 3rem 1.5rem; }
+      .contact-card { background-color: hsl(var(--card)); border: 1px solid hsl(var(--border)); border-radius: 12px; padding: 2.5rem; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+      .contact-card h2 { font-family: 'Cormorant Garamond', serif; font-size: 1.75rem; font-weight: 500; color: hsl(var(--foreground)); margin-bottom: 0.5rem; }
+      .contact-card .subtitle { color: hsl(var(--muted-foreground)); font-size: 0.95rem; margin-bottom: 2rem; border-bottom: 1px solid hsl(var(--border)); padding-bottom: 1.25rem; }
+      .contact-card .subtitle a { color: hsl(var(--primary)); }
+      .form-group { display: flex; flex-direction: column; gap: 0.3rem; margin-bottom: 1.25rem; }
+      .form-group label { font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.07em; color: hsl(var(--muted-foreground)); }
+      .form-group input, .form-group textarea { font-family: 'Inter', sans-serif; font-size: 0.95rem; padding: 0.65rem 0.9rem; border: 1px solid hsl(var(--border)); border-radius: 8px; background: hsl(var(--background)); color: hsl(var(--foreground)); transition: border-color 0.2s, box-shadow 0.2s; outline: none; width: 100%; }
+      .form-group input:focus, .form-group textarea:focus { border-color: hsl(var(--primary)); box-shadow: 0 0 0 3px hsl(var(--primary) / 0.12); }
+      .form-group textarea { resize: vertical; min-height: 120px; }
+      .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+      @media (max-width: 540px) { .form-row { grid-template-columns: 1fr; } }
+      .btn-submit { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; background: linear-gradient(135deg, hsl(var(--primary)), #60432e); color: hsl(var(--primary-foreground)); font-family: 'Inter', sans-serif; font-size: 0.95rem; font-weight: 600; padding: 0.75rem 2rem; border: none; border-radius: 8px; cursor: pointer; width: 100%; margin-top: 0.5rem; transition: opacity 0.2s; }
+      .btn-submit:hover { opacity: 0.88; }
+      .btn-submit:disabled { opacity: 0.5; cursor: not-allowed; }
+      .form-feedback { display: none; margin-top: 1rem; padding: 0.85rem 1rem; border-radius: 8px; font-size: 0.9rem; font-weight: 500; }
+      .form-feedback.success { background: hsl(120 30% 93%); color: hsl(120 40% 25%); border: 1px solid hsl(120 30% 78%); }
+      .form-feedback.error { background: hsl(0 30% 93%); color: hsl(0 50% 35%); border: 1px solid hsl(0 30% 78%); }
+      .recaptcha-note { font-size: 0.72rem; color: hsl(var(--muted-foreground)); margin-top: 0.75rem; text-align: center; }
+      .recaptcha-note a { color: hsl(var(--primary)); }
+      .back-link { display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 2rem; font-size: 0.875rem; color: hsl(var(--muted-foreground)); text-decoration: none; transition: color 0.2s; }
+      .back-link:hover { color: hsl(var(--foreground)); }
+
+      /* ─── Footer ─── */
+      footer { text-align: center; padding: 2rem; color: hsl(var(--muted-foreground)); font-size: 0.8rem; border-top: 1px solid hsl(var(--border)); margin-top: 4rem; }
+    </style>
   </head>
   <body>
-        <header>
-      <div class="site-header">
-        <div class="header-inner">
-          <nav class="nav-left">
-            <a href="/" class="nav-link">Home</a>
-            <a href="/portfolio.html" class="nav-link">Portfolio</a>
-          </nav>
-          <a href="/" class="logo-wrap">
-            <div class="logo-circle">
-              <div class="logo-text">
-                <span>Ronde</span>
-                <span>Fronten</span>
-              </div>
-            </div>
-          </a>
-          <nav class="nav-right">
-            <a href="/over-ons.html" class="nav-link">Over Ons</a>
-            <a href="/contact.html" class="nav-link active" class="nav-link">Contact</a>
-          </nav>
-          <button class="hamburger" onclick="document.getElementById('mobileMenu').classList.toggle('open')" aria-label="Menu">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
-            </svg>
-          </button>
-        </div>
-        <div class="mobile-menu" id="mobileMenu">
+    <div class="site-header">
+      <div class="header-inner">
+        <nav class="nav-left">
           <a href="/" class="nav-link">Home</a>
           <a href="/portfolio.html" class="nav-link">Portfolio</a>
+        </nav>
+        <a href="/" class="logo-wrap">
+          <div class="logo-circle">
+            <div class="logo-text"><span>Ronde</span><span>Fronten</span></div>
+          </div>
+        </a>
+        <nav class="nav-right">
           <a href="/over-ons.html" class="nav-link">Over Ons</a>
-          <a href="/contact.html" class="nav-link">Contact</a>
-        </div>
+          <a href="/contact.html" class="nav-link active">Contact</a>
+        </nav>
+        <button class="hamburger" onclick="document.getElementById('mobileMenu').classList.toggle('open')" aria-label="Menu">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
       </div>
-    </header>
+      <div class="mobile-menu" id="mobileMenu">
+        <a href="/" class="nav-link">Home</a>
+        <a href="/portfolio.html" class="nav-link">Portfolio</a>
+        <a href="/over-ons.html" class="nav-link">Over Ons</a>
+        <a href="/contact.html" class="nav-link active">Contact</a>
+      </div>
+    </div>
 
     <div class="hero">
       <h1>Contact</h1>
@@ -390,11 +134,8 @@
             <label for="bericht">Bericht <span style="opacity:0.5;font-weight:400">(optioneel)</span></label>
             <textarea id="bericht" name="bericht" placeholder="Uw bericht…"></textarea>
           </div>
-
           <button type="submit" class="btn-submit" id="submitBtn">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" />
-            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5"/></svg>
             Verstuur bericht
           </button>
           <p class="recaptcha-note">
@@ -403,69 +144,59 @@
             <a href="https://policies.google.com/terms" target="_blank">Servicevoorwaarden</a> van Google zijn van toepassing.
           </p>
         </form>
-
         <div class="form-feedback" id="formFeedback"></div>
       </div>
 
       <a class="back-link" href="/">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
-        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"/></svg>
         Terug naar de hoofdpagina
       </a>
     </main>
 
-    <footer>
-      &copy; 2026 Rondefronten.nl &mdash; Alle rechten voorbehouden
-    </footer>
-  <script src="https://www.google.com/recaptcha/api.js?render=6Lf2TZcsAAAAAGHQQLQ6zwtk7Sab5Alfgn07RMCw"></script>
-  <script>
-    document.getElementById('contactForm').addEventListener('submit', async function(e) {
-      e.preventDefault();
-      const btn      = document.getElementById('submitBtn');
-      const feedback = document.getElementById('formFeedback');
-      const naam     = document.getElementById('naam').value.trim();
-      const email    = document.getElementById('email').value.trim();
-      const telefoon = document.getElementById('telefoon').value.trim();
-      const bericht  = document.getElementById('bericht').value.trim();
+    <footer>&copy; 2026 Rondefronten.nl &mdash; Alle rechten voorbehouden</footer>
 
-      // Client-side validatie
-      if (!naam || !email) {
-        feedback.className = 'form-feedback error';
-        feedback.textContent = 'Vul uw naam en e-mailadres in.';
-        feedback.style.display = 'block';
-        return;
-      }
-
-      btn.disabled = true;
-      btn.textContent = 'Bezig met versturen…';
-      feedback.style.display = 'none';
-
-      try {
-        const token = await grecaptcha.execute('6Lf2TZcsAAAAAGHQQLQ6zwtk7Sab5Alfgn07RMCw', {action: 'contact'});
-        const resp = await fetch('/contact', {
-          method: 'POST',
-          headers: {'Content-Type': 'application/json'},
-          body: JSON.stringify({naam, email, telefoon, bericht, recaptcha_token: token})
-        });
-        const data = await resp.json();
-        if (data.ok) {
-          feedback.className = 'form-feedback success';
-          feedback.textContent = '✓ Uw bericht is ontvangen! We nemen zo snel mogelijk contact met u op.';
+    <script src="https://www.google.com/recaptcha/api.js?render=6Lf2TZcsAAAAAGHQQLQ6zwtk7Sab5Alfgn07RMCw"></script>
+    <script>
+      document.getElementById('contactForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const btn      = document.getElementById('submitBtn');
+        const feedback = document.getElementById('formFeedback');
+        const naam     = document.getElementById('naam').value.trim();
+        const email    = document.getElementById('email').value.trim();
+        const telefoon = document.getElementById('telefoon').value.trim();
+        const bericht  = document.getElementById('bericht').value.trim();
+        if (!naam || !email) {
+          feedback.className = 'form-feedback error';
+          feedback.textContent = 'Vul uw naam en e-mailadres in.';
           feedback.style.display = 'block';
-          document.getElementById('contactForm').reset();
-        } else {
-          throw new Error(data.error || 'Er ging iets mis.');
+          return;
         }
-      } catch (err) {
-        feedback.className = 'form-feedback error';
-        feedback.textContent = '✗ ' + (err.message || 'Er ging iets mis. Probeer het later opnieuw.');
-        feedback.style.display = 'block';
-      } finally {
-        btn.disabled = false;
-        btn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5"/></svg> Verstuur bericht';
-      }
-    });
-  </script>
+        btn.disabled = true;
+        btn.textContent = 'Bezig met versturen…';
+        feedback.style.display = 'none';
+        try {
+          const token = await grecaptcha.execute('6Lf2TZcsAAAAAGHQQLQ6zwtk7Sab5Alfgn07RMCw', {action: 'contact'});
+          const resp = await fetch('/contact', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({naam, email, telefoon, bericht, recaptcha_token: token})
+          });
+          const data = await resp.json();
+          if (data.ok) {
+            feedback.className = 'form-feedback success';
+            feedback.textContent = '✓ Uw bericht is ontvangen! We nemen zo snel mogelijk contact met u op.';
+            feedback.style.display = 'block';
+            document.getElementById('contactForm').reset();
+          } else { throw new Error(data.error || 'Er ging iets mis.'); }
+        } catch (err) {
+          feedback.className = 'form-feedback error';
+          feedback.textContent = '✗ ' + (err.message || 'Er ging iets mis. Probeer het later opnieuw.');
+          feedback.style.display = 'block';
+        } finally {
+          btn.disabled = false;
+          btn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5"/></svg> Verstuur bericht';
+        }
+      });
+    </script>
   </body>
 </html>
