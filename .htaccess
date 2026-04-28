@@ -1,7 +1,17 @@
 Options -MultiViews
 RewriteEngine On
+
+# Schema bewaren via X-Forwarded-Proto (nginx proxy)
+RewriteCond %{HTTP:X-Forwarded-Proto} =https [NC]
+RewriteRule ^over-ons$ https://rondefronten.nl/over-ons.html [R=301,L]
+RewriteCond %{HTTP:X-Forwarded-Proto} =https [NC]
+RewriteRule ^configurator/?$ https://rondefronten.nl/ [R=301,L]
+
+# Fallback zonder proxy-header
 RewriteRule ^over-ons$ /over-ons.html [R=301,L]
 RewriteRule ^configurator/?$ / [R=301,L]
+
+# SPA fallback
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^ index.html [QSA,L]
