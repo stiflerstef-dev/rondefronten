@@ -1,6 +1,7 @@
 Options -MultiViews
 RewriteEngine On
 RewriteRule ^over-ons$ /over-ons.html [R=301,L]
+RewriteRule ^configurator/?$ / [R=301,L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^ index.html [QSA,L]
