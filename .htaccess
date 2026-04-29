@@ -1,19 +1,37 @@
 Options -MultiViews
 RewriteEngine On
 
-# Schema bewaren via X-Forwarded-Proto (nginx proxy)
+# ─── Cache-Control headers ───
+<IfModule mod_headers.c>
+    # HTML: altijd revalideren (geen cache)
+    <FilesMatch "\.(html)$">
+        Header set Cache-Control "no-cache, no-store, must-revalidate"
+        Header set Pragma "no-cache"
+        Header set Expires "0"
+    </FilesMatch>
+
+    # Gehashte assets (JS/CSS met hash in naam): 1 jaar cachen
+    <FilesMatch "\.(js|css)$">
+        Header set Cache-Control "public, max-age=31536000, immutable"
+    </FilesMatch>
+
+    # Afbeeldingen en fonts: 1 week
+    <FilesMatch "\.(ico|svg|png|jpg|jpeg|webp|woff2|woff)$">
+        Header set Cache-Control "public, max-age=604800"
+    </FilesMatch>
+</IfModule>
+
+# ─── Redirects ───
 RewriteCond %{HTTP:X-Forwarded-Proto} =https [NC]
 RewriteRule ^over-ons$ https://rondefronten.nl/over-ons.html [R=301,L]
-
-# Fallback zonder proxy-header
 RewriteRule ^over-ons$ /over-ons.html [R=301,L]
 
-# SPA fallback voor /configurator/* (serveer configurator/index.html)
+# ─── SPA fallback voor /configurator/* ───
 RewriteCond %{REQUEST_URI} ^/configurator(/.*)?$
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^ /configurator/index.html [QSA,L]
 
-# SPA fallback voor hoofdsite
+# ─── SPA fallback voor hoofdsite ───
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^ index.html [QSA,L]
