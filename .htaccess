@@ -10,10 +10,17 @@ RewriteCond %{HTTP:X-Forwarded-Proto} =https [NC]
 RewriteRule ^portfolio$ https://rondefronten.nl/portfolio.html [R=301,L]
 RewriteRule ^portfolio$ /portfolio.html [R=301,L]
 
-# /configurator legacy redirect → / (configurator IS de root)
-RewriteRule ^configurator/?$ / [R=301,L]
+# /configurator zonder slash → /configurator/
+RewriteRule ^configurator$ /configurator/ [R=301,L]
 
-# SPA fallback voor non-existent paths → /index.html
+# SPA fallback BINNEN /configurator/
+RewriteCond %{REQUEST_URI} ^/configurator/
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^configurator/.* /configurator/index.html [L]
+
+# SPA fallback voor de homepage-SPA op de root
+RewriteCond %{REQUEST_URI} !^/configurator/
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^ /index.html [QSA,L]
