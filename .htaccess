@@ -1,17 +1,30 @@
 Options -MultiViews
 RewriteEngine On
 
-# Schone URL voor over-ons
+# Schone URLs voor losse pagina's
 RewriteCond %{HTTP:X-Forwarded-Proto} =https [NC]
 RewriteRule ^over-ons$ https://rondefronten.nl/over-ons.html [R=301,L]
 RewriteRule ^over-ons$ /over-ons.html [R=301,L]
 
-# /configurator legacy redirect → / (configurator IS de root)
 RewriteCond %{HTTP:X-Forwarded-Proto} =https [NC]
-RewriteRule ^configurator/?$ https://rondefronten.nl/ [R=301,L]
-RewriteRule ^configurator/?$ / [R=301,L]
+RewriteRule ^contact$ https://rondefronten.nl/contact.html [R=301,L]
+RewriteRule ^contact$ /contact.html [R=301,L]
 
-# SPA fallback voor non-existent paths → /index.html
+RewriteCond %{HTTP:X-Forwarded-Proto} =https [NC]
+RewriteRule ^portfolio$ https://rondefronten.nl/portfolio.html [R=301,L]
+RewriteRule ^portfolio$ /portfolio.html [R=301,L]
+
+# /configurator zonder slash → /configurator/ (zodat assets-paden kloppen)
+RewriteRule ^configurator$ /configurator/ [R=301,L]
+
+# SPA fallback BINNEN /configurator/ (geen recursie naar root)
+RewriteCond %{REQUEST_URI} ^/configurator/
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^configurator/.* /configurator/index.html [L]
+
+# SPA fallback voor de homepage-SPA op de root
+RewriteCond %{REQUEST_URI} !^/configurator/
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^ /index.html [QSA,L]
