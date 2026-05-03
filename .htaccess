@@ -1,17 +1,16 @@
 Options -MultiViews
 RewriteEngine On
 
-# Schema bewaren via X-Forwarded-Proto (nginx proxy)
+# Schone URLs voor losse pagina's
 RewriteCond %{HTTP:X-Forwarded-Proto} =https [NC]
 RewriteRule ^over-ons$ https://rondefronten.nl/over-ons.html [R=301,L]
-RewriteCond %{HTTP:X-Forwarded-Proto} =https [NC]
-RewriteRule ^configurator/?$ https://rondefronten.nl/ [R=301,L]
-
-# Fallback zonder proxy-header
 RewriteRule ^over-ons$ /over-ons.html [R=301,L]
-RewriteRule ^configurator/?$ / [R=301,L]
 
-# SPA fallback
+# /configurator zonder slash → /configurator/ (zodat relatieve assets paden kloppen)
+RewriteRule ^configurator$ /configurator/ [R=301,L]
+
+# SPA fallback BINNEN /configurator/: alle non-existent paths → /configurator/index.html
+RewriteCond %{REQUEST_URI} ^/configurator/
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^ index.html [QSA,L]
+RewriteRule ^configurator/.* /configurator/index.html [L]
