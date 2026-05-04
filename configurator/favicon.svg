@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <circle cx="32" cy="32" r="32" fill="hsl(30,45%,35%)"/>
+  <text x="32" y="28" font-family="Georgia, serif" font-size="16" font-weight="bold" fill="hsl(40,20%,98%)" text-anchor="middle" dominant-baseline="middle">RF</text>
+  <text x="32" y="46" font-family="Georgia, serif" font-size="11" fill="hsl(40,20%,98%)" text-anchor="middle" dominant-baseline="middle">.nl</text>
+</svg>
